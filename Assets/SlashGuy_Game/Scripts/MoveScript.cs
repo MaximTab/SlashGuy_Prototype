@@ -3,12 +3,12 @@
 
 public class MoveScript : MonoBehaviour
 {
-    private GameController gameController;
+    private GameConfig gameConfig;
 
     void Awake()
     {
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        gameController = gameControllerObject.GetComponent<GameController>();
+        gameConfig = gameControllerObject.GetComponent<GameConfig>();
     }
 
     public bool isMoving = false;
@@ -17,7 +17,7 @@ public class MoveScript : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * gameController.speedPlayer);
+            transform.Translate(Vector3.forward * Time.deltaTime * gameConfig.speedPlayer);
         }
     }
 }

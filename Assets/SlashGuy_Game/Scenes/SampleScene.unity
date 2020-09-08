@@ -577,6 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840283977}
+  - component: {fileID: 840283981}
   - component: {fileID: 840283976}
   - component: {fileID: 840283980}
   - component: {fileID: 840283979}
@@ -671,6 +672,18 @@ MonoBehaviour:
     type: 3}
   levelPref: {fileID: 7585706721838144603, guid: 40fd125209dcd4c079c57947b034edfb,
     type: 3}
+--- !u!114 &840283981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840283975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71de6d777ab4643d99168eef72f7b5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &840283982
 MonoBehaviour:
   m_ObjectHideFlags: 0

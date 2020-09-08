@@ -8,18 +8,10 @@ public class GameController : MonoBehaviour
 {
     private Spawner spawner;
     private ScreensController screensController;
+    private GameConfig gameConfig;
 
 
-    // Settings
-    public float speedPlayer = 5;
-    public float scaleModifierSword = 0.08f;
-    private Color32 defaultSwordColor = new Color32(255, 255, 255, 255);
-    private Color32 chargedSwordColor = new Color32(0, 255, 15, 255);
-    private Color32 chargingSwordColor = new Color32(121, 255, 130, 255);
     private Vector3 finishPoint = new Vector3(0, 0, 101);
-    
-
-
 
 
     [HideInInspector]
@@ -49,6 +41,7 @@ public class GameController : MonoBehaviour
 
         spawner = GetComponent<Spawner>();
         screensController = GetComponent<ScreensController>();
+        gameConfig = GetComponent<GameConfig>();
     }
 
     private void Start()
@@ -123,13 +116,13 @@ public class GameController : MonoBehaviour
     {
         if (currentSword.transform.localScale.z < 3)
         {
-            currentSwordMaterial.SetColor("_Color",chargingSwordColor);
-            Vector3 newScale = new Vector3(currentSword.transform.localScale.x, currentSword.transform.localScale.y, currentSword.transform.localScale.z + scaleModifierSword);
+            currentSwordMaterial.SetColor("_Color", gameConfig.chargingSwordColor);
+            Vector3 newScale = new Vector3(currentSword.transform.localScale.x, currentSword.transform.localScale.y, currentSword.transform.localScale.z + gameConfig.scaleModifierSword);
             currentSword.transform.localScale = newScale;
         }
         else
         {
-            currentSwordMaterial.SetColor("_Color", chargedSwordColor);
+            currentSwordMaterial.SetColor("_Color", gameConfig.chargedSwordColor);
         }
     }
 
@@ -147,7 +140,7 @@ public class GameController : MonoBehaviour
         Vector3 newScale = new Vector3(currentSword.transform.localScale.x, currentSword.transform.localScale.y, 1);
         currentSword.transform.localScale = newScale;
         currentSword.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
-        currentSwordMaterial.SetColor("_Color", defaultSwordColor);
+        currentSwordMaterial.SetColor("_Color", gameConfig.defaultSwordColor);
         isAttack = false;
     }
 
